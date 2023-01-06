@@ -1,0 +1,3 @@
+Create infrastructure: 4 node cluster. 3 core servers and 1 S3 clients. 
+Install Quobyte and S3 proxy
+Upload some videos via S3 client.
