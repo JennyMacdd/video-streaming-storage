@@ -53,7 +53,7 @@ EOT
  }
 
  // install necessary software
- metadata_startup_script = (var.image_coreserver == "centos-cloud/centos-7" || var.image_coreserver == "centos-cloud/centos-8" || var.image_coreserver == "rhel-cloud/rhel-8" || var.image_coreserver == "rhel-cloud/rhel-7" ? local.startupscript_core_rpmflavor : local.startupscript_core_debflavor)
+ metadata_startup_script = "curl github.com/jennz/raw/startup.sh"
  
  network_interface {
    network = "default"
@@ -86,10 +86,6 @@ resource "google_compute_disk" "coreserver-data-c" {
    type  = var.datadisk-type-hdd
    zone  = var.cluster_region
 }
-
-
-
-
 
 resource "google_compute_disk" "coreserver-metadata-a" {
   count = var.number_coreserver
